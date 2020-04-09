@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LOCALHOST.BDCitasMedicas_OLTP"
+  DTS:DTSID="{0B185756-C75C-440C-9C4E-95DD1B4CF127}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=LOCALHOST;Initial Catalog=BDCitasMedicas_OLTP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,1890 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/3/2020 7:29:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OK2PCDU"
+  DTS:CreatorName="DESKTOP-OK2PCDU\Jose4"
+  DTS:DTSID="{974AC712-2A9B-44BA-9693-2E6E547DC4D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{DC5A9F34-0167-48A2-A14B-5FFDBBA72B70}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR STG_ESPECIALIDADES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{9AB0DE3A-5FE9-4BEE-8B94-96C938AC37CB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR STG_ESPECIALIDADES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[STG_Especialidades]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BE3297CC-BF35-441A-B7A3-BE997A2F0840}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_STAGE]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Cod_Especialidad]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Cod_Especialidad"
+                      externalMetadataColumnId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Cod_Especialidad]" />
+                    <inputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Nom_Especialidad]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nom_Especialidad"
+                      externalMetadataColumnId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Especialidad]"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Nom_Especialidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sk_Especialidad]"
+                      dataType="i4"
+                      name="Sk_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Especialidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Especialidad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR STG_ESPECIALIDADES\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional].Columns[Tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Tipo"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Tipo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Especialidad_Medica]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Especialidad_Medica"
+                  synchronousInputId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Tipo]} == "M"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Tipo == "M"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Especialidad_Administrativos]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Especialidad_Administrativos"
+                  synchronousInputId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Tipo]} == "A"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Tipo == "A"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="Origen de archivo plano"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Connections[FlatFileConnection]"
+                  connectionManagerID="{F13B99B0-2DE1-4D55-B8B9-7A32CF0F7D91}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[FUENTES_DATOS_ESPECIALES_OLTP]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Cod_Especialidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Cod_Especialidad]"
+                      length="3"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Cod_Especialidad]"
+                      name="Cod_Especialidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Nom_Especialidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Nom_Especialidad]"
+                      length="20"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Nom_Especialidad]"
+                      name="Nom_Especialidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Tipo]"
+                      length="1"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].Columns[Tipo]"
+                      name="Tipo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Cod_Especialidad]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Nom_Especialidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano].ExternalColumns[Tipo]"
+                      dataType="wstr"
+                      length="1"
+                      name="Tipo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CARGAR STG_ESPECIALIDADES.Paths[Especialidad_Medica]"
+              endId="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Especialidad_Medica"
+              startId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Outputs[Especialidad_Medica]" />
+            <path
+              refId="Package\CARGAR STG_ESPECIALIDADES.Paths[Salida de origen de archivo plano]"
+              endId="Package\CARGAR STG_ESPECIALIDADES\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de origen de archivo plano"
+              startId="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano.Outputs[Salida de origen de archivo plano]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR STG_MEDICOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{93F9AFD8-78A7-4EBD-8633-2010DCE4850A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR STG_MEDICOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CARGAR STG_MEDICOS\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[STG_Especialidades]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[STG_Especialidades]) [refTable]
+where [refTable].[Cod_Especialidad] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Sk_Especialidad" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cod_Especialidad" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nom_Especialidad" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Especialidad]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR STG_MEDICOS\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="{BE3297CC-BF35-441A-B7A3-BE997A2F0840}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_STAGE]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda].Columns[Cod_Especialidad]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Cod_Especialidad"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Especialidad]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">Cod_Especialidad</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Sk_Especialidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Sk_Especialidad]"
+                      name="Sk_Especialidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Sk_Especialidad</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[STG_Medicos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BE3297CC-BF35-441A-B7A3-BE997A2F0840}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_STAGE]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Cod_Medico]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Cod_Medico"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Medico]"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Medico]" />
+                    <inputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Nom_Medico]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nom_Medico"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Medico]"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Medico]" />
+                    <inputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Cod_Especialidad]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Cod_Especialidad"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Especialidad]" />
+                    <inputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Sk_Especialidad]"
+                      cachedDataType="i4"
+                      cachedName="Sk_Especialidad"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sk_Especialidad]"
+                      lineageId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Sk_Especialidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sk_Medico]"
+                      dataType="i4"
+                      name="Sk_Medico" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Medico]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Medico" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sk_Especialidad]"
+                      dataType="i4"
+                      name="Sk_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Especialidad" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Medico]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Medico" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB LEER T_MEDICOS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[T_Medicos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Connections[OleDbConnection]"
+                  connectionManagerID="{0B185756-C75C-440C-9C4E-95DD1B4CF127}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_OLTP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Medico]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Medico]"
+                      length="3"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Medico]"
+                      name="Cod_Medico"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Medico]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Medico]"
+                      length="20"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Medico]"
+                      name="Nom_Medico"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Especialidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      length="3"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Especialidad]"
+                      name="Cod_Especialidad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Medico]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Medico" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Medico]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Medico" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Especialidad]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Especialidad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Medico]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Medico]"
+                      name="Cod_Medico" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Medico]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Medico]"
+                      name="Nom_Medico" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Especialidad]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Especialidad]"
+                      name="Cod_Especialidad" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CARGAR STG_MEDICOS.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\CARGAR STG_MEDICOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\CARGAR STG_MEDICOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\CARGAR STG_MEDICOS.Paths[Salida de origen de OLE DB]"
+              endId="Package\CARGAR STG_MEDICOS\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de origen de OLE DB"
+              startId="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar STG_SANATORIOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{65F3793D-51F9-42C5-AFAC-6CEA73F7594A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar STG_SANATORIOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar STG_SANATORIOS\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar STG_SANATORIOS\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar STG_SANATORIOS\Columna derivada.Inputs[Entrada de columna derivada].Columns[Estado_Sanatorio]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Estado_Sanatorio"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Estado_Sanatorio]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Cargar STG_SANATORIOS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de columna derivada].Columns[tx_Estado_Sanatorio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de columna derivada].Columns[tx_Estado_Sanatorio]"
+                      name="tx_Estado_Sanatorio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Estado_Sanatorio]} == "0" ? "Clinica" : "Centro Medico"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Estado_Sanatorio == "0" ? "Clinica" : "Centro Medico"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Cargar STG_SANATORIOS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DESTINATION OLE DB STG_SANATORIOS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[STG_Sanatorios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Connections[OleDbConnection]"
+                  connectionManagerID="{BE3297CC-BF35-441A-B7A3-BE997A2F0840}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_STAGE]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].Columns[Cod_Sanatorio]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Cod_Sanatorio"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Sanatorio]"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Sanatorio]" />
+                    <inputColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].Columns[Nom_Sanatorio]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nom_Sanatorio"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Sanatorio]"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Sanatorio]" />
+                    <inputColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].Columns[tx_Estado_Sanatorio]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="tx_Estado_Sanatorio"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado_Sanatorio]"
+                      lineageId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de columna derivada].Columns[tx_Estado_Sanatorio]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sk_Sanatorio]"
+                      dataType="i4"
+                      name="Sk_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Sanatorio]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Sanatorio]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado_Sanatorio]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Latitud]"
+                      dataType="numeric"
+                      name="Latitud"
+                      precision="12"
+                      scale="9" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[Longitud]"
+                      dataType="numeric"
+                      name="Longitud"
+                      precision="12"
+                      scale="9" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="OLE DB SOURCE LEER T_SANATORIOS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[T_Sanatorios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Connections[OleDbConnection]"
+                  connectionManagerID="{0B185756-C75C-440C-9C4E-95DD1B4CF127}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOCALHOST.BDCitasMedicas_OLTP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Sanatorio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Sanatorio]"
+                      length="3"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Cod_Sanatorio]"
+                      name="Cod_Sanatorio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Sanatorio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Sanatorio]"
+                      length="20"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Nom_Sanatorio]"
+                      name="Nom_Sanatorio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Estado_Sanatorio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado_Sanatorio]"
+                      length="1"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].Columns[Estado_Sanatorio]"
+                      name="Estado_Sanatorio"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Sanatorio]"
+                      dataType="wstr"
+                      length="3"
+                      name="Cod_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Sanatorio]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nom_Sanatorio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado_Sanatorio]"
+                      dataType="wstr"
+                      length="1"
+                      name="Estado_Sanatorio" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Sanatorio]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Sanatorio]"
+                      name="Cod_Sanatorio" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Sanatorio]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Sanatorio]"
+                      name="Nom_Sanatorio" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Estado_Sanatorio]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[Estado_Sanatorio]"
+                      name="Estado_Sanatorio" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar STG_SANATORIOS.Paths[Salida de columna derivada]"
+              endId="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Cargar STG_SANATORIOS\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Cargar STG_SANATORIOS.Paths[Salida de origen de OLE DB]"
+              endId="Package\Cargar STG_SANATORIOS\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Eliminar registros STG_STAGE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B127E82F-FF5E-465E-B662-271A6D51F32D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Eliminar registros STG_STAGE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BE3297CC-BF35-441A-B7A3-BE997A2F0840}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_SANATORIOS&#xA;TRUNCATE TABLE STG_ESPECIALIDADES&#xA;TRUNCATE TABLE STG_MEDICOS&#xA;DECLARE @FechaDesde date,@FechaHasta date&#xA;&#xA;DECLARE @Sk_Fecha int,&#xA;        @FechaEvaluada date,@Anio int,&#xA;&#x9;&#x9;@Semestre nvarchar(30),@Trimestre nvarchar(30),@Mes nvarchar(30),@DiaSemana nvarchar(30)&#xA;DECLARE @NumSemestreAnio smallint,@NumTrimestreAnio smallint,@NumMesAnio smallint,&#xA;        @NumDiaSemana smallint,@NumDiaMes smallint&#xA;&#xA;&#xA;&#xA;--Set inicial por si no coincide con los del servidor&#xA;SET DATEFORMAT dmy&#xA;SET DATEFIRST 1&#xA;&#xA;BEGIN TRANSACTION&#xA;    --Borrar datos de la tabla STG_Fechas&#xA;    TRUNCATE TABLE  STG_Fechas&#xA;   &#xA;    --Rango de fechas a generar: del 01/01/2017 al 31/12/2020&#xA;    SELECT @FechaDesde = CAST('20170101' AS date)&#xA;&#x9;SELECT @FechaHasta = CAST('20201231' AS date)&#xA;&#xA;&#x9;--Carga la variable @FechaEvaluada con el valor inicial de la @FechaDesde&#xA;&#x9;SET @FechaEvaluada = @FechaDesde&#xA;    &#xA;&#xA;    --Inicio de BUCLE para insertar registros en la tabla STG_FECHAS&#xA;    WHILE (@FechaEvaluada &lt;= @FechaHasta) --Mientras @FechaEvaluada sea menor o igual a la @FechaHasta&#xA;&#x9;   BEGIN&#xA;            --Obtiene el valor para el campo SK_FECHA en formato número YYYYMMDD de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @Sk_Fecha = YEAR(@FechaEvaluada)*10000 + MONTH(@FechaEvaluada)*100 + DATEPART(dd, @FechaEvaluada)&#xA;            --Obtiene el año de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @Anio = DATEPART(yy, @FechaEvaluada)&#xA;&#x9;&#x9;&#x9;--Obtiene la descripción del semestre de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @Semestre = CASE&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;     WHEN Month(@FechaEvaluada) &lt;= 6 THEN 'Semestre 1' &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ELSE 'Semestre 2'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   END&#xA;             --Obtiene la descripción del trimestre de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @Trimestre = CASE&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) &lt;= 3 THEN 'Trimestre 1'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) BETWEEN 4 AND  6 THEN 'Trimestre 2'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) BETWEEN 7 AND  9 THEN 'Trimestre 3'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 'Trimestre 4'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#x9; --Obtiene la descripción del mes de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @Mes = DATENAME(MONTH,@FechaEvaluada)&#xA;&#xA;&#x9;&#x9;&#x9; --Obtiene la descripción del día de la semana (Lunes, Martes,...,Domingo) de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @DiaSemana = DATENAME(WEEKDAY,@FechaEvaluada)&#xA; &#xA;&#x9;&#x9;&#x9;--Obtiene la posición del semestre en el año de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @NumSemestreAnio = CASE&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; WHEN Month(@FechaEvaluada) &lt;= 6 THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ELSE 2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   END&#xA;&#xA;&#x9;&#x9;&#x9;--Obtiene la posición del trimestre (del 1 al 4) en el año de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @NumTrimestreAnio = CASE&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) &lt;= 3 Then 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) BETWEEN 4 AND 6 Then 2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN Month(@FechaEvaluada) BETWEEN 7 AND 9 Then 3&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 4&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   END&#xA;&#xA;&#x9;&#x9;&#x9;--Obtiene la posición del mes en el año (del 1 al 12 )de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @NumMesAnio = Month(@FechaEvaluada)&#xA;&#xA;&#x9;&#x9;&#x9;--Obtiene la posición del día de la semana (del 1 al 7) de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @NumDiaSemana = DATEPART(WEEKDAY,@FechaEvaluada)&#xA;&#xA;&#x9;&#x9;&#x9;--Obtiene la posición del día del mes de la @FechaEvaluada&#xA;&#x9;&#x9;&#x9;SELECT @NumDiaMes = DAY(@FechaEvaluada)&#xA;&#xA;&#x9;&#x9;&#x9;--Inserta el registro con los valores extraídos de la @FechaEvaluada en la tabla STG_Fechas&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;INSERT INTO STG_Fechas&#xA;&#x9;&#x9;&#x9;(&#x9;Sk_Fecha,Fecha,Anio,Semestre,Trimestre,Mes,DiaSemana,&#xA;&#x9;&#x9;&#x9;    NumSemestreAnio,NumTrimestreAnio,NumMesAnio,NumDiaSemana,NumDiaMes )&#xA;&#x9;&#x9;&#x9;VALUES&#xA;&#x9;&#x9;&#x9;(   @Sk_Fecha,@FechaEvaluada,@Anio,@Semestre,@Trimestre,@Mes,@DiaSemana,&#xA;&#x9;&#x9;&#x9;    @NumSemestreAnio,@NumTrimestreAnio,@NumMesAnio,@NumDiaSemana,@NumDiaMes )&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;   &#xA;&#x9;&#x9;&#x9;--Incremento el valor de la @FechaEvaluada en un día&#xA;&#x9;&#x9;&#x9;SELECT @FechaEvaluada = DATEADD(DAY, 1, @FechaEvaluada)&#xA;    END&#xA;    COMMIT TRANSACTION&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{DEE271C4-9D43-4D54-9C48-BE452C370F14}"
+      DTS:From="Package\Eliminar registros STG_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Cargar STG_SANATORIOS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E9C20CD-F3FB-438E-AB23-01D30F9BE1F6}"
+      DTS:From="Package\Eliminar registros STG_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\CARGAR STG_ESPECIALIDADES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{339EC2A4-13EF-4E1A-B860-D4492E3F045B}"
+      DTS:From="Package\CARGAR STG_ESPECIALIDADES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\CARGAR STG_MEDICOS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\CARGAR STG_ESPECIALIDADES"
+          TopLeft="594,167" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\CARGAR STG_MEDICOS"
+          TopLeft="615,257" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Cargar STG_SANATORIOS"
+          TopLeft="298,159" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Eliminar registros STG_STAGE"
+          TopLeft="438,67" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="513,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-114,50"
+              Start="0,0"
+              End="-114,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2156334231806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2156334231806"
+                    Point2="0,20.2156334231806"
+                    Point3="-4,20.2156334231806" />
+                  <mssgle:LineSegment
+                    End="-110,20.2156334231806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-110,20.2156334231806"
+                    Point2="-114,20.2156334231806"
+                    Point3="-114,24.2156334231806" />
+                  <mssgle:LineSegment
+                    End="-114,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="584,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125,58"
+              Start="0,0"
+              End="125,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4501347708895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.4501347708895"
+                    Point2="0,23.4501347708895"
+                    Point3="4,23.4501347708895" />
+                  <mssgle:LineSegment
+                    End="121,23.4501347708895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121,23.4501347708895"
+                    Point2="125,23.4501347708895"
+                    Point3="125,27.4501347708895" />
+                  <mssgle:LineSegment
+                    End="125,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="710,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="OLTP_STAGE"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="95,40"
+          Id="cc338c4d-938c-484a-ad7d-bfe25f768fd4"
+          TopLeft="120,73" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGAR STG_ESPECIALIDADES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\CARGAR STG_ESPECIALIDADES\Origen de archivo plano"
+          TopLeft="218,10" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\CARGAR STG_ESPECIALIDADES\División condicional"
+          TopLeft="267,134" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB"
+          TopLeft="233,235" />
+        <EdgeLayout
+          Id="Package\CARGAR STG_ESPECIALIDADES.Paths[Salida de origen de archivo plano]"
+          TopLeft="313.5,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,82"
+              Start="0,0"
+              End="39,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
+                  <mssgle:LineSegment
+                    End="35,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,41"
+                    Point2="39,41"
+                    Point3="39,45" />
+                  <mssgle:LineSegment
+                    End="39,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR STG_ESPECIALIDADES.Paths[Especialidad_Medica]"
+          TopLeft="352.5,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.5,59"
+              Start="0,0"
+              End="-35.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="-4,29.5" />
+                  <mssgle:LineSegment
+                    End="-31.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.5,29.5"
+                    Point2="-35.5,29.5"
+                    Point3="-35.5,33.5" />
+                  <mssgle:LineSegment
+                    End="-35.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.073359375,34.5,90.64671875,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR STG_ESPECIALIDADES\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGAR STG_MEDICOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\CARGAR STG_MEDICOS\Destino de OLE DB"
+          TopLeft="252,233" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS"
+          TopLeft="209,48" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CARGAR STG_MEDICOS\Búsqueda"
+          TopLeft="283,145" />
+        <EdgeLayout
+          Id="Package\CARGAR STG_MEDICOS.Paths[Salida de origen de OLE DB]"
+          TopLeft="335,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,55"
+              Start="0,0"
+              End="10.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="6.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,27.5"
+                    Point2="10.5,27.5"
+                    Point3="10.5,31.5" />
+                  <mssgle:LineSegment
+                    End="10.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR STG_MEDICOS.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="345.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,46"
+              Start="0,0"
+              End="-9.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-5.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,23"
+                    Point2="-9.5,23"
+                    Point3="-9.5,27" />
+                  <mssgle:LineSegment
+                    End="-9.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-104.5690234375,28,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR STG_MEDICOS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR STG_MEDICOS\Origen de OLE DB LEER T_MEDICOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR STG_MEDICOS\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[STG_Especialidades]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Cargar STG_SANATORIOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="278,42"
+          Id="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS"
+          TopLeft="231,281" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS"
+          TopLeft="222,82" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Cargar STG_SANATORIOS\Columna derivada"
+          TopLeft="259,174" />
+        <EdgeLayout
+          Id="Package\Cargar STG_SANATORIOS.Paths[Salida de columna derivada]"
+          TopLeft="341,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,65"
+              Start="0,0"
+              End="29,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="25,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25,32.5"
+                    Point2="29,32.5"
+                    Point3="29,36.5" />
+                  <mssgle:LineSegment
+                    End="29,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar STG_SANATORIOS.Paths[Salida de origen de OLE DB]"
+          TopLeft="354,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,50"
+              Start="0,0"
+              End="-13,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-9,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,25"
+                    Point2="-13,25"
+                    Point3="-13,29" />
+                  <mssgle:LineSegment
+                    End="-13,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar STG_SANATORIOS\DESTINATION OLE DB STG_SANATORIOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar STG_SANATORIOS\OLE DB SOURCE LEER T_SANATORIOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

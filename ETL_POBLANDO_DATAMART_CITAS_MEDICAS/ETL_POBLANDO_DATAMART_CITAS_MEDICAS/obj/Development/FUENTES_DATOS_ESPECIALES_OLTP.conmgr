@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="FUENTES_DATOS_ESPECIALES_OLTP"
+  DTS:DTSID="{F13B99B0-2DE1-4D55-B8B9-7A32CF0F7D91}"
+  DTS:CreationName="FLATFILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="3082"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:ColumnNamesInFirstDataRow="True"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x0022_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="D:\Enciclopedia\Universidad\BI\Fuente_Datos\Fuente_Texto_Especialidad.txt">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="3"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Cod_Especialidad"
+          DTS:DTSID="{AC67203A-F269-4C96-8594-FF7742E39585}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="20"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Nom_Especialidad"
+          DTS:DTSID="{AE2F69EC-E68E-4E37-BA29-008E237C7D60}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:MaximumWidth="1"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Tipo"
+          DTS:DTSID="{1CE3C120-7960-4BF5-AF52-55825639733A}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
