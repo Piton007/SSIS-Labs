@@ -1,0 +1,2000 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2020 8:07:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OK2PCDU"
+  DTS:CreatorName="DESKTOP-OK2PCDU\Jose4"
+  DTS:DTSID="{E9618815-3ED1-460D-AF00-9346D7A7C530}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="ETL_MIGRATIONS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{90119C9B-8AC7-4643-BD9C-CF011553EC02}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Territorios"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{2F9E7FDA-4386-4BD0-BB53-8F02871EC771}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Territorios"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Territorios\Columna derivada 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Territorios\Columna derivada 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[CountryRegionCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CountryRegionCode"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CountryRegionCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Cargar Territorios\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de columna derivada].Columns[cd_Nombre_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="14"
+                      lineageId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de columna derivada].Columns[cd_Nombre_Region]"
+                      name="cd_Nombre_Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CountryRegionCode]} == "US" ? "EN EE.UU" : "FUERA DE EE.UU"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">CountryRegionCode == "US" ? "EN EE.UU" : "FUERA DE EE.UU"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Cargar Territorios\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Territorios\Grabar Territorios"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Grabar Territorios"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Territorios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Territorios\Grabar Territorios.Connections[OleDbConnection]"
+                  connectionManagerID="{296540F3-57B4-4F25-8A4B-384FA11C23EF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWC_MIGRACION]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[CountryRegionCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CountryRegionCode"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[RegionCodigo]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CountryRegionCode]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[Group]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Group"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Group]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[SalesYTD]"
+                      cachedDataType="cy"
+                      cachedName="SalesYTD"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[VentasAcumuladas]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesYTD]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[SalesLastYear]"
+                      cachedDataType="cy"
+                      cachedName="SalesLastYear"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[VentasAnioPasado]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesLastYear]" />
+                    <inputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].Columns[cd_Nombre_Region]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="cd_Nombre_Region"
+                      externalMetadataColumnId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Region]"
+                      lineageId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de columna derivada].Columns[cd_Nombre_Region]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[RegionCodigo]"
+                      dataType="wstr"
+                      length="3"
+                      name="RegionCodigo" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Grupo" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[VentasAcumuladas]"
+                      dataType="cy"
+                      name="VentasAcumuladas" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[VentasAnioPasado]"
+                      dataType="cy"
+                      name="VentasAnioPasado" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Region]"
+                      dataType="wstr"
+                      length="30"
+                      name="Nombre_Region" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Territorios\Grabar Territorios.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Grabar Territorios.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Grabar Territorios.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Grabar Territorios.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Territorios\Origen de SalesTerritory"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de SalesTerritory"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Sales].[SalesTerritory]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Territorios\Origen de SalesTerritory.Connections[OleDbConnection]"
+                  connectionManagerID="{1A70CEF8-4D29-4FD3-82A5-B340BC00BB24}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorks2017]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CountryRegionCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CountryRegionCode]"
+                      length="3"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CountryRegionCode]"
+                      name="CountryRegionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[Group]"
+                      length="50"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[Group]"
+                      name="Group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesYTD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesYTD]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesYTD]"
+                      name="SalesYTD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesLastYear]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[SalesLastYear]"
+                      name="SalesLastYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CostYTD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CostYTD]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CostYTD]"
+                      name="CostYTD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CostLastYear]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CostLastYear]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[CostLastYear]"
+                      name="CostLastYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[rowguid]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CountryRegionCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CountryRegionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[Group]"
+                      dataType="wstr"
+                      length="50"
+                      name="Group" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CostYTD]"
+                      dataType="cy"
+                      name="CostYTD" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[CostLastYear]"
+                      dataType="cy"
+                      name="CostLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[TerritoryID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CountryRegionCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CountryRegionCode]"
+                      name="CountryRegionCode" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[Group]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[Group]"
+                      name="Group" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[SalesYTD]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[SalesYTD]"
+                      name="SalesYTD" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[SalesLastYear]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[SalesLastYear]"
+                      name="SalesLastYear" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CostYTD]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CostYTD]"
+                      name="CostYTD" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CostLastYear]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[CostLastYear]"
+                      name="CostLastYear" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar Territorios.Paths[Salida de columna derivada]"
+              endId="Package\Cargar Territorios\Grabar Territorios.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Cargar Territorios\Columna derivada 1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Cargar Territorios.Paths[Salida de origen de OLE DB]"
+              endId="Package\Cargar Territorios\Columna derivada 1.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Cargar Territorios\Origen de SalesTerritory.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Ventas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{537DB707-1987-4693-953E-75EAED75D87C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Ventas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Ventas\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de columna derivada].Columns[cd_dias_preparacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de columna derivada].Columns[cd_dias_preparacion]"
+                      name="cd_dias_preparacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DATEDIFF]("day",#{Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OrderDate]},#{Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipDate]}) + 1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("day",OrderDate,ShipDate) + 1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{296540F3-57B4-4F25-8A4B-384FA11C23EF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWC_MIGRACION]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[RevisionNumber]"
+                      cachedDataType="ui1"
+                      cachedName="RevisionNumber"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[RevisionNumber]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrderDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DueDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DueDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[DueDate]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipDate]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Status]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[OnlineOrderFlag]"
+                      cachedDataType="bool"
+                      cachedName="OnlineOrderFlag"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OnlineOrderFlag]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PurchaseOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="PurchaseOrderNumber"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PurchaseOrderNumber]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[PurchaseOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[AccountNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="AccountNumber"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AccountNumber]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[BillToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="BillToAddressID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[BillToAddressID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ShipToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="ShipToAddressID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipToAddressID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ShipMethodID]"
+                      cachedDataType="i4"
+                      cachedName="ShipMethodID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipMethodID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CreditCardID]"
+                      cachedDataType="i4"
+                      cachedName="CreditCardID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreditCardID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CreditCardApprovalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="CreditCardApprovalCode"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreditCardApprovalCode]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardApprovalCode]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CurrencyRateID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyRateID"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CurrencyRateID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CurrencyRateID]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SubTotal]"
+                      cachedDataType="cy"
+                      cachedName="SubTotal"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SubTotal]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TaxAmt]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Freight]"
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Freight]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Freight]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TotalDue]"
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalDue]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TotalDue]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Comment]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Comment"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Comment]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Comment]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[rowguid]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cd_dias_preparacion]"
+                      cachedDataType="i4"
+                      cachedName="cd_dias_preparacion"
+                      externalMetadataColumnId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasPreparacionOrder]"
+                      lineageId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de columna derivada].Columns[cd_dias_preparacion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreditCardID]"
+                      dataType="i4"
+                      name="CreditCardID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CurrencyRateID]"
+                      dataType="i4"
+                      name="CurrencyRateID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasPreparacionOrder]"
+                      dataType="i4"
+                      name="DiasPreparacionOrder" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB Sales Order Header"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Sales].[SalesOrderHeader]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Connections[OleDbConnection]"
+                  connectionManagerID="{1A70CEF8-4D29-4FD3-82A5-B340BC00BB24}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorks2017]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[OrderDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[DueDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[DueDate]"
+                      name="DueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Status]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesOrderNumber]"
+                      length="25"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[PurchaseOrderNumber]"
+                      length="25"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[AccountNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[AccountNumber]"
+                      length="15"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CustomerID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[BillToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[BillToAddressID]"
+                      name="BillToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipMethodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ShipMethodID]"
+                      name="ShipMethodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CreditCardID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardID]"
+                      name="CreditCardID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CreditCardApprovalCode]"
+                      length="15"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CurrencyRateID]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SubTotal]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SubTotal]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[SubTotal]"
+                      name="SubTotal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Freight]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Freight]"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalDue]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[TotalDue]"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Comment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Comment]"
+                      length="128"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[Comment]"
+                      name="Comment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[rowguid]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CreditCardID]"
+                      dataType="i4"
+                      name="CreditCardID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[CurrencyRateID]"
+                      dataType="i4"
+                      name="CurrencyRateID" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesOrderID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesOrderID]"
+                      name="SalesOrderID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[RevisionNumber]"
+                      name="RevisionNumber" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[DueDate]"
+                      name="DueDate" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Status]"
+                      dataType="ui1"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[AccountNumber]"
+                      name="AccountNumber" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TerritoryID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[BillToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[BillToAddressID]"
+                      name="BillToAddressID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipToAddressID]"
+                      name="ShipToAddressID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipMethodID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ShipMethodID]"
+                      name="ShipMethodID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CreditCardID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CreditCardID]"
+                      name="CreditCardID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[CurrencyRateID]"
+                      name="CurrencyRateID" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SubTotal]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[SubTotal]"
+                      name="SubTotal" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TaxAmt]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TaxAmt]"
+                      name="TaxAmt" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Freight]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TotalDue]"
+                      dataType="cy"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[TotalDue]"
+                      name="TotalDue" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[Comment]"
+                      name="Comment" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar Ventas.Paths[Salida de columna derivada]"
+              endId="Package\Cargar Ventas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Cargar Ventas\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Cargar Ventas.Paths[Salida de origen de OLE DB]"
+              endId="Package\Cargar Ventas\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Cargar Ventas\Origen de OLE DB Sales Order Header.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar Tablas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C7638245-89C8-4F73-A1B6-015CF5C4CDCA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar Tablas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{296540F3-57B4-4F25-8A4B-384FA11C23EF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE VENTAS&#xA;TRUNCATE TABLE TERRITORIOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{6D17C4A7-CAED-4C48-9A4C-5EDC0E392CD1}"
+      DTS:From="Package\Cargar Territorios"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Cargar Ventas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E6BE5558-6B1E-4DCB-899A-9F6A530B6FE6}"
+      DTS:From="Package\Limpiar Tablas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Cargar Territorios" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Cargar Territorios"
+          TopLeft="250.5,169.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Cargar Ventas"
+          TopLeft="256.5,252.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="330.25,211.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Limpiar Tablas"
+          TopLeft="258,85" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="331.5,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5"
+              Start="0,0"
+              End="0,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Cargar Territorios">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Cargar Territorios\Origen de SalesTerritory"
+          TopLeft="115,13" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Cargar Territorios\Grabar Territorios"
+          TopLeft="415,177" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Cargar Territorios\Columna derivada 1"
+          TopLeft="163,116" />
+        <EdgeLayout
+          Id="Package\Cargar Territorios.Paths[Salida de origen de OLE DB]"
+          TopLeft="211.5,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,61"
+              Start="0,0"
+              End="38,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="34,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,30.5"
+                    Point2="38,30.5"
+                    Point3="38,34.5" />
+                  <mssgle:LineSegment
+                    End="38,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Territorios.Paths[Salida de columna derivada]"
+          TopLeft="336,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,61"
+              Start="0,0"
+              End="71.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,0"
+                    Point2="39.5,0"
+                    Point3="39.5,4" />
+                  <mssgle:LineSegment
+                    End="39.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,57"
+                    Point2="39.5,61"
+                    Point3="43.5,61" />
+                  <mssgle:LineSegment
+                    End="71.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Territorios\Grabar Territorios">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Territorios\Origen de SalesTerritory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Cargar Ventas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Cargar Ventas\Origen de OLE DB Sales Order Header"
+          TopLeft="261,16" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Cargar Ventas\Destino de OLE DB"
+          TopLeft="311,191" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Cargar Ventas\Columna derivada"
+          TopLeft="225,94" />
+        <EdgeLayout
+          Id="Package\Cargar Ventas.Paths[Salida de origen de OLE DB]"
+          TopLeft="390.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.5,36"
+              Start="0,0"
+              End="-83.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-79.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79.5,18"
+                    Point2="-83.5,18"
+                    Point3="-83.5,22" />
+                  <mssgle:LineSegment
+                    End="-83.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas.Paths[Salida de columna derivada]"
+          TopLeft="307,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88,55"
+              Start="0,0"
+              End="88,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="84,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84,27.5"
+                    Point2="88,27.5"
+                    Point3="88,31.5" />
+                  <mssgle:LineSegment
+                    End="88,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Ventas\Origen de OLE DB Sales Order Header">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Ventas\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

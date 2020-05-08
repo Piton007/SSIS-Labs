@@ -1,0 +1,1580 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/18/2020 7:55:53 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OK2PCDU"
+  DTS:CreatorName="DESKTOP-OK2PCDU\Jose4"
+  DTS:DTSID="{DA722425-4801-48FE-B636-A1B54F604523}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Migracion"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{CA52D1C4-AE05-4596-A8B1-A64A618807FA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga de Datos Reales Censo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{9263276C-3430-4697-8327-27B0EB62E828}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga de Datos Reales Censo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga de Datos Reales Censo\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Censados_Excel]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Censados_Excel]) [refTable]
+where [refTable].[Anio] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Anio" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Censada" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Omitida" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de Datos Reales Censo\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="{BCC964A7-0A1E-42DC-B576-CB0B14088EEE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.PC1]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda].Columns[Copia de Anio]"
+                      cachedDataType="i4"
+                      cachedName="Copia de Anio"
+                      lineageId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">Anio</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Total_01]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Total_01]"
+                      name="Total_01"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Total</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Censada_01]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Censada_01]"
+                      name="Censada_01"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Censada</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Omitida_01]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Omitida_01]"
+                      name="Omitida_01"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Omitida</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Anio_01]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Anio_01]"
+                      name="Anio_01"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Anio</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de Datos Reales Censo\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada].Columns[ Error_Censados]"
+                      cachedDataType="r8"
+                      cachedName=" Error_Censados"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]" />
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada].Columns[Censada_01]"
+                      cachedDataType="r8"
+                      cachedName="Censada_01"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Censada_01]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de columna derivada].Columns[dx_real_censados]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de columna derivada].Columns[dx_real_censados]"
+                      name="dx_real_censados"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(100 - #{Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]}) * #{Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Censada_01]} / 100</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(100 - [ Error_Censados]) * Censada_01 / 100</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de Datos Reales Censo\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Anio]"
+                      cachedDataType="r8"
+                      cachedName="Anio"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Anio]" />
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[ Error_Censados]"
+                      cachedDataType="r8"
+                      cachedName=" Error_Censados"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]"
+                      name="Copia de Anio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Anio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de  Error_Censados]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de  Error_Censados]"
+                      name="Copia de  Error_Censados"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de Datos Reales Censo\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Censados]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BCC964A7-0A1E-42DC-B576-CB0B14088EEE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.PC1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Anio]"
+                      cachedDataType="r8"
+                      cachedName="Anio"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio_censo]"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Anio]" />
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Censada_01]"
+                      cachedDataType="r8"
+                      cachedName="Censada_01"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada_aproximada]"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Censada_01]" />
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Omitida_01]"
+                      cachedDataType="r8"
+                      cachedName="Omitida_01"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_censados]"
+                      lineageId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Omitida_01]" />
+                    <inputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[dx_real_censados]"
+                      cachedDataType="r8"
+                      cachedName="dx_real_censados"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada_real]"
+                      lineageId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de columna derivada].Columns[dx_real_censados]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio_censo]"
+                      dataType="i4"
+                      name="Anio_censo" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada_aproximada]"
+                      dataType="r8"
+                      name="Censada_aproximada" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_censados]"
+                      dataType="r8"
+                      name="No_censados" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada_real]"
+                      dataType="r8"
+                      name="Censada_real" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de Datos Reales Censo\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Hoja1$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de Datos Reales Censo\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="{759C492F-A87A-41CC-9BB6-C4DF9722CCB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Anio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Anio]"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Anio]"
+                      name="Anio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ Error_Censados]"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ Error_Censados]"
+                      name=" Error_Censados"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Anio]"
+                      dataType="r8"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ Error_Censados]"
+                      dataType="r8"
+                      name=" Error_Censados" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Anio]"
+                      dataType="r8"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Anio]"
+                      name="Anio" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ Error_Censados]"
+                      dataType="r8"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ Error_Censados]"
+                      name=" Error_Censados" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga de Datos Reales Censo.Paths[Salida de columna derivada]"
+              endId="Package\Carga de Datos Reales Censo\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Carga de Datos Reales Censo\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Carga de Datos Reales Censo.Paths[Salida de conversión de datos]"
+              endId="Package\Carga de Datos Reales Censo\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de conversión de datos"
+              startId="Package\Carga de Datos Reales Censo\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Carga de Datos Reales Censo.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Carga de Datos Reales Censo\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Carga de Datos Reales Censo\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Carga de Datos Reales Censo.Paths[Salida de origen de Excel]"
+              endId="Package\Carga de Datos Reales Censo\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Carga de Datos Reales Censo\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Datos de Censados Excel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D614BDA3-FCB5-4E71-95E0-E09E15519D45}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Datos de Censados Excel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Datos de Censados Excel\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Anio]"
+                      cachedDataType="r8"
+                      cachedName="Anio"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Anio]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Censada]"
+                      cachedDataType="r8"
+                      cachedName="Censada"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Censada]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Omitida]"
+                      cachedDataType="r8"
+                      cachedName="Omitida"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Omitida]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]"
+                      name="Copia de Anio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Anio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Total]"
+                      name="Copia de Total"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Total]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Censada]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Censada]"
+                      name="Copia de Censada"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Censada]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Omitida]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Omitida]"
+                      name="Copia de Omitida"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Omitida]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de CensadosExcel"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Censados_Excel]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Connections[OleDbConnection]"
+                  connectionManagerID="{BCC964A7-0A1E-42DC-B576-CB0B14088EEE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.PC1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].Columns[Copia de Anio]"
+                      cachedDataType="i4"
+                      cachedName="Copia de Anio"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Anio]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].Columns[Copia de Total]"
+                      cachedDataType="r8"
+                      cachedName="Copia de Total"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Total]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].Columns[Copia de Censada]"
+                      cachedDataType="r8"
+                      cachedName="Copia de Censada"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Censada]" />
+                    <inputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].Columns[Copia de Omitida]"
+                      cachedDataType="r8"
+                      cachedName="Copia de Omitida"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Omitida]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Omitida]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      dataType="i4"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Censada]"
+                      dataType="r8"
+                      name="Censada" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB].ExternalColumns[Omitida]"
+                      dataType="r8"
+                      name="Omitida" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Datos de Censados Excel\Origen de Censados"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Censados"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">WorkSheet$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Connections[OleDbConnection]"
+                  connectionManagerID="{120BFB1B-217D-4A60-B200-BE45BF43CE6D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EXCEL_CENSADOS]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Anio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Anio]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Anio]"
+                      name="Anio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Total]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Censada]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Censada]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Censada]"
+                      name="Censada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Omitida]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Omitida]"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].Columns[Omitida]"
+                      name="Omitida"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Anio]"
+                      dataType="r8"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Censada]"
+                      dataType="r8"
+                      name="Censada" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel].ExternalColumns[Omitida]"
+                      dataType="r8"
+                      name="Omitida" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Anio]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Anio]"
+                      name="Anio" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Censada]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Censada]"
+                      name="Censada" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Omitida]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[Omitida]"
+                      name="Omitida" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar Datos de Censados Excel.Paths[Salida de conversión de datos]"
+              endId="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Cargar Datos de Censados Excel\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Cargar Datos de Censados Excel.Paths[Salida de origen de Excel]"
+              endId="Package\Cargar Datos de Censados Excel\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Cargar Datos de Censados Excel\Origen de Censados.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{897C41AE-B628-492A-83DD-64846922AD79}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BCC964A7-0A1E-42DC-B576-CB0B14088EEE}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE CENSADOS&#xA;TRUNCATE TABLE CENSADOS_EXCEL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{11D8B372-2E58-4120-A9D7-0B4233F9E1BD}"
+      DTS:From="Package\Cargar Datos de Censados Excel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Carga de Datos Reales Censo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F6A0ADBC-2384-4877-9A2A-52AC60CDFC72}"
+      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Cargar Datos de Censados Excel" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Cargar Datos de Censados Excel"
+          TopLeft="184,89" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Carga de Datos Reales Censo"
+          TopLeft="203,172" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="299.5,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12,41"
+              Start="0,0"
+              End="12,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="8,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8,20.5"
+                    Point2="12,20.5"
+                    Point3="12,24.5" />
+                  <mssgle:LineSegment
+                    End="12,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Tarea Ejecutar SQL"
+          TopLeft="213,24" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="298.75,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Cargar Datos de Censados Excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Cargar Datos de Censados Excel\Origen de Censados"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Cargar Datos de Censados Excel\Conversión de datos"
+          TopLeft="221,12" />
+        <EdgeLayout
+          Id="Package\Cargar Datos de Censados Excel.Paths[Salida de origen de Excel]"
+          TopLeft="178.5,29.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.5,0"
+              Start="0,0"
+              End="35,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel"
+          TopLeft="223,94" />
+        <EdgeLayout
+          Id="Package\Cargar Datos de Censados Excel.Paths[Salida de conversión de datos]"
+          TopLeft="308.5,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,40"
+              Start="0,0"
+              End="15.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="11.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,20"
+                    Point2="15.5,20"
+                    Point3="15.5,24" />
+                  <mssgle:LineSegment
+                    End="15.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Datos de Censados Excel\Origen de Censados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Datos de Censados Excel\Destino de CensadosExcel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga de Datos Reales Censo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Carga de Datos Reales Censo\Origen de Excel"
+          TopLeft="15,95" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga de Datos Reales Censo\Conversión de datos"
+          TopLeft="219,85" />
+        <EdgeLayout
+          Id="Package\Carga de Datos Reales Censo.Paths[Salida de origen de Excel]"
+          TopLeft="168,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,-10"
+              Start="0,0"
+              End="43.5,-10">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,0"
+                    Point2="25.5,0"
+                    Point3="25.5,-4" />
+                  <mssgle:LineSegment
+                    End="25.5,-6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,-6"
+                    Point2="25.5,-10"
+                    Point3="29.5,-10" />
+                  <mssgle:LineSegment
+                    End="43.5,-10" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Carga de Datos Reales Censo\Búsqueda"
+          TopLeft="242.5,159.5" />
+        <EdgeLayout
+          Id="Package\Carga de Datos Reales Censo.Paths[Salida de conversión de datos]"
+          TopLeft="305.75,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5"
+              Start="0,0"
+              End="0,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Carga de Datos Reales Censo\Columna derivada"
+          TopLeft="428,163" />
+        <EdgeLayout
+          Id="Package\Carga de Datos Reales Censo.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="367.5,182.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.5,0"
+              Start="0,0"
+              End="53,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.3190234375,5,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Carga de Datos Reales Censo\Destino de OLE DB"
+          TopLeft="430,84" />
+        <EdgeLayout
+          Id="Package\Carga de Datos Reales Censo.Paths[Salida de columna derivada]"
+          TopLeft="512,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-37"
+              Start="0,0"
+              End="0,-29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Datos Reales Censo\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Datos Reales Censo\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Censados_Excel]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Datos Reales Censo\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

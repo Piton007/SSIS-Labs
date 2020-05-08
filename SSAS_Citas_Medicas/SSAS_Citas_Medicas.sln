@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "SSAS_Citas_Medicas", "SSAS_Citas_Medicas\SSAS_Citas_Medicas.dwproj", "{89DB7D51-5983-4947-9FB2-014DFB54A4E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89DB7D51-5983-4947-9FB2-014DFB54A4E6}.Development|Default.ActiveCfg = Development
+		{89DB7D51-5983-4947-9FB2-014DFB54A4E6}.Development|Default.Build.0 = Development
+		{89DB7D51-5983-4947-9FB2-014DFB54A4E6}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E58AD611-6398-4BD5-A612-671976AC9849}
+	EndGlobalSection
+EndGlobal
