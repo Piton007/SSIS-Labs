@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-OK2PCDU</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsrMK5EA4bEGlFfdVNFYFTwAAAAACAAAAAAAQZgAAAAEAACAAAAD6W7t3M5PkCj3yBHXJ8dr/ocTi+OLLfg93qjNTaHZspgAAAAAOgAAAAAIAACAAAAANS6C8iiWaKPTdVFCN8TnAmdf5oHnlnPup4YGMkbJ575AAAADAoBZ8gFBJ+EKiDX3NmsWgVVgHPQvP7fn7MM+THbAmT1qeOpDbhQcPL3ThiKa8VFmnVJl2ix132ok1UnXjY8/srkg6ZVISXulgno/uUVsxLOKpxfdKkiY9FBKXHo5MSfIjo6hdjdIle7cEImdIVBwI/4A53t/wxPkp2tfilYe1uY7zRH26XAkINo2NzJbGY1xAAAAA6SOsyvjF8PsU5Yb6x4s5WNEJJUoHZdNynkYksoSoHx2BSx0t/QNnGvr6iwSkNJs4fOt2E04NTJ/80s4q16Zmtg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPAkK+szkF0mxATZcIl98TQAAAAACAAAAAAAQZgAAAAEAACAAAABuVJ3EF0bq0egggZ/Gz1x2z2nDuy6rXDXP/aQuFFcR+wAAAAAOgAAAAAIAACAAAABBFqtuYPXjEPgU2Xeb6KhQ5ES1Thg6YEZH4wuZxEKTd5AAAABMsR5fCqoOGJf1CUl4RCLjpvuJHVhA/5zoyu0dYypqIZQULN3MZUKjppp9qjQ4jRLGBnYHEEWox0piNuUeFaEBo9RKzp2gJ3JQeZw2TqcRtzRMF4NVM4MvTmBZdZHQxaKHMUPBTqOfyaR/ywGWItQNgr0xURLavuB1Cv/16xymWiY0X7iT63wz6U+WC/zYKnJAAAAA4PdwCXSTgTd/Hu33wJe8gUAqOwCIJ26dufwn21VjjFFd8eyvMYeVDrg7WSZRXzD1nOUy2H6VtQLPUrcSGqv1MQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -186,7 +186,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=BDLowes_Mart;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-GKS6MD2;Initial Catalog=BDLowes_Mart;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -260,7 +260,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">DESKTOP-GKS6MD2</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -289,7 +289,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Acquisitions_Payment.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Acquisitions_Payment.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -304,7 +304,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Acquisitions_Payment.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Acquisitions_Payment.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -377,7 +377,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Acquisitions_Payment.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Acquisitions_Payment.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -406,7 +406,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Inventory.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Inventory.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -421,7 +421,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Inventory.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Inventory.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -494,7 +494,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Inventory.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Inventory.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -523,7 +523,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Payroll.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Payroll.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -538,7 +538,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Payroll.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Payroll.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -611,7 +611,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">D:\Enciclopedia\Nueva carpeta\Datos_Proyecto (1)\Datos_Proyecto\Payroll.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\Jose4\Documents\Visual Studio 2017\Projects\ETL_Lowes\Fuente_Datos\Payroll.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -637,10 +637,10 @@
                 <SSIS:Property SSIS:Name="Name">ETL_LOWES_OLTP_STAGE</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">15</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">35</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{702EF154-806C-442A-895F-3C27EF6CEEB3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{42FA31D0-5B92-4735-AF17-31BED4191BA7}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

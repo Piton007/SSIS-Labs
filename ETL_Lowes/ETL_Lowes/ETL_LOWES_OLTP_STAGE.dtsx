@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_LOWES_OLTP_STAGE"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{42FA31D0-5B92-4735-AF17-31BED4191BA7}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{975782CF-E1D5-44F2-9E68-641AF314AF88}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5180,7 +5180,7 @@ where [refTable].[Sk_Vendors] = ?</property>
         <NodeLayout
           Size="142,42"
           Id="Package\STG_FECHAS"
-          TopLeft="565,90" />
+          TopLeft="537,105" />
         <NodeLayout
           Size="134,42"
           Id="Package\STG_ITEMS"
@@ -5305,26 +5305,26 @@ where [refTable].[Sk_Vendors] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="223.8,32"
+              EndConnector="195.8,47"
               Start="0,0"
-              End="223.8,24.5">
+              End="195.8,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,5.5438596491228" />
+                    End="0,10.0175438596491" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,5.5438596491228"
-                    Point2="0,9.5438596491228"
-                    Point3="4,9.5438596491228" />
+                    Point1="0,10.0175438596491"
+                    Point2="0,14.0175438596491"
+                    Point3="4,14.0175438596491" />
                   <mssgle:LineSegment
-                    End="219.8,9.5438596491228" />
+                    End="191.8,14.0175438596491" />
                   <mssgle:CubicBezierSegment
-                    Point1="219.8,9.5438596491228"
-                    Point2="223.8,9.5438596491228"
-                    Point3="223.8,13.5438596491228" />
+                    Point1="191.8,14.0175438596491"
+                    Point2="195.8,14.0175438596491"
+                    Point3="195.8,18.0175438596491" />
                   <mssgle:LineSegment
-                    End="223.8,24.5" />
+                    End="195.8,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5437,30 +5437,30 @@ where [refTable].[Sk_Vendors] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="636,132">
+          TopLeft="608,147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-261.2,121"
+              EndConnector="-233.2,106"
               Start="0,0"
-              End="-261.2,113.5">
+              End="-233.2,98.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.2723492723493" />
+                    End="0,69.8253638253638" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,80.2723492723493"
-                    Point2="0,84.2723492723493"
-                    Point3="-4,84.2723492723493" />
+                    Point1="0,69.8253638253638"
+                    Point2="0,73.8253638253638"
+                    Point3="-4,73.8253638253638" />
                   <mssgle:LineSegment
-                    End="-257.2,84.2723492723493" />
+                    End="-229.2,73.8253638253638" />
                   <mssgle:CubicBezierSegment
-                    Point1="-257.2,84.2723492723493"
-                    Point2="-261.2,84.2723492723493"
-                    Point3="-261.2,88.2723492723493" />
+                    Point1="-229.2,73.8253638253638"
+                    Point2="-233.2,73.8253638253638"
+                    Point3="-233.2,77.8253638253638" />
                   <mssgle:LineSegment
-                    End="-261.2,113.5" />
+                    End="-233.2,98.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5556,7 +5556,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5590,7 +5592,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5624,7 +5628,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5778,7 +5784,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5812,7 +5820,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5846,7 +5856,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5880,7 +5892,9 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6285,7 +6299,7 @@ where [refTable].[Sk_Vendors] = ?</property>
     design-time-name="Package\STG_VENDORS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
           Id="Package\STG_VENDORS\Destino de OLE DB 1"
@@ -6329,9 +6343,7 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6365,9 +6377,7 @@ where [refTable].[Sk_Vendors] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
