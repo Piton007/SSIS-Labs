@@ -1,0 +1,241 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7270feec-edd3-4b2f-8148-4b52b727dae3" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Analisis_Lowes</ID>
+  <Name>Analisis_Lowes</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="ea158083-64b2-4e98-9782-011b3c67bab0">
+      <ID>Fechas</ID>
+      <Name>Fechas</Name>
+      <DimensionID>Fechas</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="162b445a-e425-43fe-81d4-c115069c1a6a">
+          <AttributeID>Sk Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b2ed2ef8-7933-4518-b681-dafadf161550">
+          <AttributeID>Anio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b728ecae-faee-4c76-a42b-a86a45fa5f11">
+          <AttributeID>Dia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="deab437e-6570-4724-a140-f0935ec1de29">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="318aa31d-a664-4f68-a05a-55f2d87e552b">
+      <ID>Products</ID>
+      <Name>Products</Name>
+      <DimensionID>Products</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="da2a1514-424d-49d6-80d7-0c94aec1592f">
+          <AttributeID>Sk Product</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="43772a36-0232-4fc7-999b-cf0a64c48539">
+          <AttributeID>Cost</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fb1260d4-65cf-4b6d-8a87-bfb5aaf82a87">
+          <AttributeID>Location</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3c9359aa-a7c9-47fb-b790-8db2942f5da6">
+          <AttributeID>Discount</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="bcc2903a-cfe0-45d4-8f6c-b6bf93e57937">
+      <ID>Users</ID>
+      <Name>Users</Name>
+      <DimensionID>Users</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="beb18188-16bc-4b41-8a43-c62034e4bc1d">
+          <AttributeID>Sk User</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2bc6bf15-f3cd-4fef-a2f9-197776d6df56">
+          <AttributeID>Department</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5e3cd405-68a6-49ff-88da-d4f8574544c7">
+          <AttributeID>Position</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9832d388-6b9a-4295-a145-7fbdee99fb0c">
+          <AttributeID>Full Name</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="8c295866-36e8-4812-9b16-95649e4bd055">
+      <ID>Vendors</ID>
+      <Name>Vendors</Name>
+      <DimensionID>Vendors</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c3319705-1c1d-49e5-8648-ddaad5a84140">
+          <AttributeID>Sk Vendors</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="32caa5a6-9861-428a-9f3d-88f25bdb1711">
+          <AttributeID>Address</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bcc37218-d6d8-4f38-b5a4-184ed1e1caea">
+          <AttributeID>City</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="3d126048-d555-424b-9e5a-f0711622ab54">
+      <ID>Fact ITEMS</ID>
+      <Name>Fact ITEMS</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="e1560842-1623-4a21-bbf4-c06d1fb63c20">
+          <ID>Unidades</ID>
+          <Name>Unidades</Name>
+          <Source dwd:design-time-name="7d1b069e-b846-4f4f-a9be-92389439e727">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c3aed4e4-47d2-4935-ba6e-b3c99e576b52">
+              <TableID>dbo_Fact_ITEMS</TableID>
+              <ColumnID>Unidades</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="174361f6-1642-4b02-8ff9-ea95fec023c9">
+          <ID>Monto</ID>
+          <Name>Monto</Name>
+          <Source dwd:design-time-name="f5d49efd-f81b-403d-8d13-766d03342093">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="51c4c0b2-c015-4041-85f7-d456d6b43743">
+              <TableID>dbo_Fact_ITEMS</TableID>
+              <ColumnID>Monto</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f035a9d0-053b-400f-9657-d581ba8800bd">
+          <CubeDimensionID>Fechas</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="067b0352-cb39-47bc-9ce7-ed29204aa53e">
+              <AttributeID>Sk Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1f72f2cd-555b-48f6-92d7-e345cf559b85">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09618ce9-810b-4f24-809b-4b8bc319caf9">
+                    <TableID>dbo_Fact_ITEMS</TableID>
+                    <ColumnID>Sk_Fecha</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="8ce8b217-d5ca-4bf5-b5e3-abaedff3e219">
+          <CubeDimensionID>Products</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c641ca0f-c5c0-4154-baf4-4766cca408c6">
+              <AttributeID>Sk Product</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="282ff29a-5acd-4c61-be9e-d448bf6ac015">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0b3c8cf3-b3f3-4e3e-a0f2-3a6479aa64a1">
+                    <TableID>dbo_Fact_ITEMS</TableID>
+                    <ColumnID>Sk_Product</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0aed6ab7-b207-4352-9587-978709109a4a">
+          <CubeDimensionID>Users</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="32f31b00-f20c-483e-b334-92ff8f3265be">
+              <AttributeID>Sk User</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="78d951f2-9a1a-41ca-ba60-0ba3a85525b5">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="15f7deb4-2b2c-4fad-947a-eab1abf31642">
+                    <TableID>dbo_Fact_ITEMS</TableID>
+                    <ColumnID>Sk_User</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4ed89ad3-9a92-4faa-a102-1031b9c9d7e6">
+          <CubeDimensionID>Vendors</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="fdd007be-ee54-464f-8f99-e228e10ae6d3">
+              <AttributeID>Sk Vendors</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="708cafd2-680b-4a01-a220-514562925492">
+                  <DataType>WChar</DataType>
+                  <DataSize>20</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="91348612-6357-45d7-8868-fa796b1ac383">
+                    <TableID>dbo_Fact_ITEMS</TableID>
+                    <ColumnID>Sk_Vendors</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="a16cf5c5-106a-4581-8727-24697e0d8bf2">
+    <DataSourceViewID>DV_LOWES</DataSourceViewID>
+  </Source>
+</Cube>
