@@ -1,0 +1,438 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="977aae79-29b1-47a3-9a1a-405432b8c399" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Analisis_COVID</ID>
+  <Name>Analisis_COVID</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4707" scrolltop="5476" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14499" y="8202" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="TDim_Estados" left="306" top="13372" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_TDim_Estados" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Fact_Pandemia" left="20" top="7400" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3572" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000f40d0000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Fact_Pandemia" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="TDim_Fechas" left="46" top="0" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3519" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000bf0d000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_TDim_Fechas" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="TDim_Paises" left="5992" top="7611" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3307" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000eb0c00004d0c0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_TDim_Paises" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1407" top="10672" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_Fact_Pandemia_TDim_Estados]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1806" y="13372" />
+              <point x="1806" y="10972" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1406" top="4501" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_Fact_Pandemia_TDim_Fechas]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1805" y="5000" />
+              <point x="1805" y="6200" />
+              <point x="1806" y="6200" />
+              <point x="1806" y="7400" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3292" top="8786" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_Fact_Pandemia_TDim_Paises]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="2" sourceattachpoint="14" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5992" y="9185" />
+              <point x="4792" y="9185" />
+              <point x="4792" y="9186" />
+              <point x="3592" y="9186" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-4707</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>5476</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>75</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="8aad085e-c447-4231-9fe0-406c8c911ec7">
+      <ID>Fechas</ID>
+      <Name>Fechas</Name>
+      <DimensionID>Fechas</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="76e055a3-6491-43a6-afdd-d20911e3ca9e">
+          <AttributeID>Sk Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="576f97f1-c56f-4287-848d-3efa108c879e">
+          <AttributeID>Anio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fabbda42-1674-412e-ac58-0096886c7a7d">
+          <AttributeID>Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0459c4c7-3800-4997-ba3f-eeec3dbc3c07">
+          <AttributeID>Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="42adc7cf-2bfc-450c-9bc4-cb547056bb58">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ccc98bc4-802e-42ff-953d-70becb100713">
+          <AttributeID>Dia Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6de9e2f2-986d-4bfb-b5aa-d9e7d90f808b">
+          <AttributeID>Num Semestre Anio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bde3cfb8-8230-437e-926e-d66737db4d7f">
+          <AttributeID>Num Trimestre Anio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="099171e0-2d3a-4a77-a7f6-de200cc79132">
+          <AttributeID>Num Mes Anio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f3f72fe2-8c6c-408c-b6e0-b71439c6e321">
+          <AttributeID>Num Dia Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b0b0b7ed-e25c-4c42-9653-c7b5c38e8e4f">
+          <AttributeID>Num Dia Mes</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="bfb1d053-a874-44b2-8626-624d3c88a0ee">
+          <HierarchyID>Jerarquía</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="c5270619-75ad-4033-9d6f-5ddae9835cfd">
+      <ID>Estados</ID>
+      <Name>Estados</Name>
+      <DimensionID>Estados</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="0167ee37-f3f5-4794-8ecd-a3f8d2fe4837">
+          <AttributeID>Sk Estado</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dcb9c58e-34b6-401c-8ecd-7f5e538be312">
+      <ID>Paises</ID>
+      <Name>Paises</Name>
+      <DimensionID>Paises</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="abae2caa-d444-4ada-bbbf-2c7d0ad7d3c1">
+          <AttributeID>Sk Pais</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5c7bf784-11fc-49f8-be61-1419d4053f6f">
+          <AttributeID>Nom Continente</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="cb128343-af58-4944-b4de-485993f625f7">
+          <HierarchyID>Jerarquía</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="56a67271-4525-4c30-b4b1-8a1307a60d01">
+      <ID>Fact Pandemia</ID>
+      <Name>Fact Pandemia</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="ac560018-56db-40e3-a88e-1f0457c0e811">
+          <ID>Num Positivos</ID>
+          <Name>Nro_Positivos</Name>
+          <Source dwd:design-time-name="00ddb2fc-ca4b-406f-8cc2-c59de4111ca7">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b9b472e7-570d-4817-8d5d-88054e510f5c">
+              <TableID>dbo_Fact_Pandemia</TableID>
+              <ColumnID>NumPositivos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ebba5f5b-f4ef-4202-a3ba-8c6e963ad66e">
+          <ID>Num Fallecidos</ID>
+          <Name>Nro_Fallecidos</Name>
+          <Source dwd:design-time-name="6c7a05b3-e1b7-435e-b096-77a29a176dbe">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="eab52d62-d5d4-40f9-be47-289f87313503">
+              <TableID>dbo_Fact_Pandemia</TableID>
+              <ColumnID>NumFallecidos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="67f78dd8-c43b-43e0-a7f6-8874d5545d67">
+          <ID>Máximo Num Positivos</ID>
+          <Name>Max_Positivos</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <Source dwd:design-time-name="becd60da-2653-4967-b7e4-0a92d76351af">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1a2bc559-99ce-422a-be37-745ad5ecbf0f">
+              <TableID>dbo_Fact_Pandemia</TableID>
+              <ColumnID>NumPositivos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="837febda-63aa-46ce-a874-67ccf977bf37">
+          <ID>Sk Fecha</ID>
+          <Name>NroDias_Virus</Name>
+          <Source dwd:design-time-name="53f826fd-f275-47d4-ba77-85bf959517e1">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="61db7a2a-f23c-4a7c-b665-bafabb4731de">
+              <TableID>dbo_Fact_Pandemia</TableID>
+              <ColumnID>Sk_Fecha</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="17f9afda-a9aa-47de-837f-545e9b8e31cd">
+          <CubeDimensionID>Fechas</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e46f76af-42fe-4afd-bf0d-6be4a43d7cce">
+              <AttributeID>Sk Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="48de0f14-06bf-4fc7-bddf-af97e02333b7">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7b526e13-c192-4a27-bfee-b226e12136da">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Fecha</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9c79888a-3ba4-45b5-810c-8d2567b21f7d">
+          <CubeDimensionID>Estados</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="133098e4-477a-4787-a3bb-673a07e821fe">
+              <AttributeID>Sk Estado</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="30057b0c-b4a9-429c-9918-0f84cd703714">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2a76a78a-a876-4ed8-8488-c88d7f600928">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Estado</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e98cbe4d-2cff-403d-8859-5cb8618b29bd">
+          <CubeDimensionID>Paises</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9b092693-4d76-4960-95ab-45cb5b06e675">
+              <AttributeID>Sk Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9cc22ff8-7759-4237-bdba-a28ab4db0b49">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ee88fbc6-2005-4e8d-a0d7-7ccdd4f84b39">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Pais</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="6646e8b4-a545-4766-be81-129cd3716961">
+      <ID>Fact Pandemia 1</ID>
+      <Name>Fact Pandemia Distintos Paises</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="61d5e20d-8852-4f53-bab2-671bf1454ab8">
+          <ID>Recuento distinto Sk Pais</ID>
+          <Name>Nro_Paises</Name>
+          <AggregateFunction>DistinctCount</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="0960e2fc-8ac1-4740-9874-4733d1faba7b">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="38cb49e5-48d3-4a38-9ac9-a914d73cdfc4">
+              <TableID>dbo_Fact_Pandemia</TableID>
+              <ColumnID>Sk_Pais</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="07149d2a-c355-498d-9795-3f89c56d40a1">
+          <CubeDimensionID>Fechas</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="345ce172-e933-4603-a78e-6c601222d86a">
+              <AttributeID>Sk Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a036f00a-b020-476e-8a9c-d89ecf89e271">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="233369c9-68d9-4134-84bb-e6d3e80aab46">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Fecha</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="261b1634-0c1c-4776-90c2-9758b16e0e84">
+          <CubeDimensionID>Estados</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6333d5e0-fa42-4ae9-a9e9-74c80a433d7f">
+              <AttributeID>Sk Estado</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d3c95ed9-364a-40b9-b2cf-c04e85c57405">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="19814855-6b9c-4db9-a0ef-ee0b086f2ca3">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Estado</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f1a28417-097f-4dc6-9835-6bb51c1e7ecc">
+          <CubeDimensionID>Paises</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b0a01130-c5e7-45e9-a7fa-221ad86ba373">
+              <AttributeID>Sk Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e38e9dbc-cced-4701-942e-7771f32c29c0">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4ff9eacd-9c28-40bf-8b74-4a8e666cb538">
+                    <TableID>dbo_Fact_Pandemia</TableID>
+                    <ColumnID>Sk_Pais</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="1dc1c9f8-a529-4d70-abd7-fdc3883772d9">
+    <DataSourceViewID>BD Pandemia MART</DataSourceViewID>
+  </Source>
+</Cube>

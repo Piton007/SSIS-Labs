@@ -1,0 +1,181 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="847e837d-9df4-4d60-953a-299e4fec8181" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>BD Pandemia MART</ID>
+  <Name>BD Pandemia MART</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>BD Pandemia MART</DataSourceID>
+  <Schema>
+    <xs:schema id="BD_x0020_Pandemia_x0020_MART" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="BD_x0020_Pandemia_x0020_MART" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="7b0b72d0-ca76-4e0b-a6f2-3c89556ade43">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact_Pandemia" msprop:design-time-name="b3c14792-1cd3-45bd-98c0-8db746622c34" msprop:DbTableName="Fact_Pandemia" msprop:FriendlyName="Fact_Pandemia" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Sk_Fecha" msprop:design-time-name="f8cb5af6-4a98-4013-9281-c283eb282d7a" msprop:DbColumnName="Sk_Fecha" msprop:FriendlyName="Sk_Fecha" type="xs:int" />
+                  <xs:element name="Sk_Pais" msprop:design-time-name="6408c061-edc0-44b3-ab7f-93439c4b8174" msprop:DbColumnName="Sk_Pais" msprop:FriendlyName="Sk_Pais" type="xs:int" />
+                  <xs:element name="Sk_Estado" msprop:design-time-name="0bab7163-cd27-4bb6-a1c2-348423ee4819" msprop:DbColumnName="Sk_Estado" msprop:FriendlyName="Sk_Estado" type="xs:int" />
+                  <xs:element name="NumPositivos" msprop:design-time-name="5c5f2f87-b6d3-46c2-8e5f-9642e8ece00a" msprop:DbColumnName="NumPositivos" msprop:FriendlyName="NumPositivos" type="xs:int" minOccurs="0" />
+                  <xs:element name="NumFallecidos" msprop:design-time-name="62ce2433-6977-486f-89af-77454457f55d" msprop:DbColumnName="NumFallecidos" msprop:FriendlyName="NumFallecidos" type="xs:int" minOccurs="0" />
+                  <xs:element name="NumPoblacionPais" msprop:design-time-name="c244d9fb-6792-4bf3-a208-5ce1eb842628" msprop:DbColumnName="NumPoblacionPais" msprop:FriendlyName="NumPoblacionPais" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_TDim_Estados" msprop:design-time-name="eeb2a45b-7087-4cb9-932f-52258fb4ccec" msprop:DbTableName="TDim_Estados" msprop:FriendlyName="TDim_Estados" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Sk_Estado" msprop:design-time-name="a9c84f1b-fc5d-486e-8e7d-c1158c35ded8" msprop:DbColumnName="Sk_Estado" msprop:FriendlyName="Sk_Estado" type="xs:int" />
+                  <xs:element name="Nom_Estado" msprop:design-time-name="214e50ae-d1f6-4c2b-9118-3de54c064cbc" msprop:DbColumnName="Nom_Estado" msprop:FriendlyName="Nom_Estado" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_TDim_Fechas" msprop:design-time-name="6da119e6-d2c5-4a2b-ab87-5070ce7e149e" msprop:DbTableName="TDim_Fechas" msprop:FriendlyName="TDim_Fechas" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Sk_Fecha" msprop:design-time-name="acb8f2be-7784-4e00-9a62-d1f222a433f7" msprop:DbColumnName="Sk_Fecha" msprop:FriendlyName="Sk_Fecha" type="xs:int" />
+                  <xs:element name="Fecha" msprop:design-time-name="6d5966fc-635f-487c-9e0a-7e416353f99e" msprop:DbColumnName="Fecha" msprop:FriendlyName="Fecha" type="xs:dateTime" />
+                  <xs:element name="Anio" msprop:design-time-name="1ef0c8c3-7977-4271-9183-08c411671151" msprop:DbColumnName="Anio" msprop:FriendlyName="Anio" type="xs:short" />
+                  <xs:element name="Semestre" msprop:design-time-name="6c454563-097f-4bff-9046-50f8a6064fb3" msprop:DbColumnName="Semestre" msprop:FriendlyName="Semestre" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Trimestre" msprop:design-time-name="f8b8bde9-99cd-47f5-94b0-018d838a1abf" msprop:DbColumnName="Trimestre" msprop:FriendlyName="Trimestre" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Mes" msprop:design-time-name="5602fa05-79f0-4803-9f72-b0f9e113581e" msprop:DbColumnName="Mes" msprop:FriendlyName="Mes" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DiaSemana" msprop:design-time-name="136aae4c-b22f-4799-9f41-4b3e2532e25c" msprop:DbColumnName="DiaSemana" msprop:FriendlyName="DiaSemana" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NumSemestreAnio" msprop:design-time-name="63223576-2bac-4719-a9b2-7c8a017c674e" msprop:DbColumnName="NumSemestreAnio" msprop:FriendlyName="NumSemestreAnio" type="xs:short" minOccurs="0" />
+                  <xs:element name="NumTrimestreAnio" msprop:design-time-name="77b6bb4e-dff0-41cb-95cc-bfcb4ebb44e3" msprop:DbColumnName="NumTrimestreAnio" msprop:FriendlyName="NumTrimestreAnio" type="xs:short" minOccurs="0" />
+                  <xs:element name="NumMesAnio" msprop:design-time-name="803efbd1-f994-4bda-ac13-4aa14db2d87b" msprop:DbColumnName="NumMesAnio" msprop:FriendlyName="NumMesAnio" type="xs:short" minOccurs="0" />
+                  <xs:element name="NumDiaSemana" msprop:design-time-name="84e3d782-c1c1-4196-aa1e-c205f303d7bb" msprop:DbColumnName="NumDiaSemana" msprop:FriendlyName="NumDiaSemana" type="xs:short" minOccurs="0" />
+                  <xs:element name="NumDiaMes" msprop:design-time-name="cef52603-cb44-489d-83c0-79fb64576d66" msprop:DbColumnName="NumDiaMes" msprop:FriendlyName="NumDiaMes" type="xs:short" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_TDim_Paises" msprop:design-time-name="fbba3ff5-0a46-4556-838e-796873840e10" msprop:DbTableName="TDim_Paises" msprop:FriendlyName="TDim_Paises" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Sk_Pais" msprop:design-time-name="0d1ba09b-e81e-4cf3-b723-7b20492751d3" msprop:DbColumnName="Sk_Pais" msprop:FriendlyName="Sk_Pais" type="xs:int" />
+                  <xs:element name="Nom_Continente" msprop:design-time-name="69c768b7-0b7c-44c4-94f8-64e6be3a384b" msprop:DbColumnName="Nom_Continente" msprop:FriendlyName="Nom_Continente" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Nom_Pais" msprop:design-time-name="26d010ff-40ad-473b-b23a-88207a92d6f7" msprop:DbColumnName="Nom_Pais" msprop:FriendlyName="Nom_Pais" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="150" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Geo_Pais" msprop:design-time-name="71d686fc-8157-48bb-a26e-87d00dcaafc0" msprop:DbColumnName="Geo_Pais" msprop:FriendlyName="Geo_Pais" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Poblacion" msprop:design-time-name="6809d75e-6bbe-4cc7-b7c6-dde3feb529aa" msprop:DbColumnName="Poblacion" msprop:FriendlyName="Poblacion" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact_Pandemia" />
+          <xs:field xpath="Sk_Fecha" />
+          <xs:field xpath="Sk_Pais" />
+          <xs:field xpath="Sk_Estado" />
+        </xs:unique>
+        <xs:unique name="dbo_TDim_Estados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_TDim_Estados" />
+          <xs:field xpath="Sk_Estado" />
+        </xs:unique>
+        <xs:unique name="dbo_TDim_Fechas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_TDim_Fechas" />
+          <xs:field xpath="Sk_Fecha" />
+        </xs:unique>
+        <xs:unique name="dbo_TDim_Paises_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_TDim_Paises" />
+          <xs:field xpath="Sk_Pais" />
+        </xs:unique>
+        <xs:keyref name="FK_Fact_Pandemia_TDim_Paises" refer="dbo_TDim_Paises_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Pandemia" />
+          <xs:field xpath="Sk_Pais" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Pandemia_TDim_Estados" refer="dbo_TDim_Estados_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Pandemia" />
+          <xs:field xpath="Sk_Estado" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Pandemia_TDim_Fechas" refer="dbo_TDim_Fechas_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Pandemia" />
+          <xs:field xpath="Sk_Fecha" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <BD_x0020_Pandemia_x0020_MART xmlns="" />
+  </Schema>
+</DataSourceView>

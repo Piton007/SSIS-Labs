@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSAS_COVID", "SSAS_COVID\SSAS_COVID.dtproj", "{7351D70F-32A0-4E86-AB50-C1A07DD7603D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7351D70F-32A0-4E86-AB50-C1A07DD7603D}.Development|Default.ActiveCfg = Development
+		{7351D70F-32A0-4E86-AB50-C1A07DD7603D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98886BDD-C121-4F88-98B9-AA0AAB3917F8}
+	EndGlobalSection
+EndGlobal

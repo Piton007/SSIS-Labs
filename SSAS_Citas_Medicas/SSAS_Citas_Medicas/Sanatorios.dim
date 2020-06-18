@@ -1,11 +1,37 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f5169385-e096-4a35-84e4-10ec47723b4b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4b4a6d91-28c8-47bc-827c-976bf21d51bd" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Sanatorios</ID>
   <Name>Sanatorios</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1197" scrolltop="-2170" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="5874" y="7488" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="TDim_Sanatorios" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3440" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000700d00004d0c0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_TDim_Sanatorios" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
@@ -21,15 +47,15 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>0</Value>
+      <Value>-1197</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>0</Value>
+      <Value>-2170</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>0</Value>
+      <Value>20</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
@@ -40,49 +66,49 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="77581bb6-652a-438d-bd42-94020b77931d">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="006302da-2326-4a82-b9b1-be0bcb1a0255">
     <DataSourceViewID>BD Citas Medicas MART</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="8caf1810-b7f8-43c0-87ea-917a570d870f">
+  <ErrorConfiguration dwd:design-time-name="4915f0b6-30cd-481c-93ed-7a4db6633ee3">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="9cede26b-0af0-4beb-8bd2-90592600e696">
+    <Attribute dwd:design-time-name="389a1849-a169-49f0-962a-feb2792aa864">
       <ID>Sk Sanatorio</ID>
-      <Name>Sk Sanatorio</Name>
+      <Name>Sanatorio</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="45600e80-5fe7-40c6-916b-aa179c5398bc">
+        <KeyColumn dwd:design-time-name="afccc1bf-d184-427a-941a-845a1d0843fc">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="86ca85da-e5c9-44c8-ac08-8d01f9ceb007">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5647cb37-c3aa-485f-92aa-e6312007ecf3">
             <TableID>dbo_TDim_Sanatorios</TableID>
             <ColumnID>Sk_Sanatorio</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="df4151c8-8704-44c2-9bfb-a2cf994ad900">
+      <NameColumn dwd:design-time-name="bf3bc821-463c-4de2-910e-35d439128de0">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="e28a09a3-ade4-4172-a2e9-efcfde7634df">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3625b233-4a03-4ce2-836a-beb9f660b653">
           <TableID>dbo_TDim_Sanatorios</TableID>
           <ColumnID>Nom_Sanatorio</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="2e56412b-a59f-4f47-a16a-f88525300422">
+        <AttributeRelationship dwd:design-time-name="50f67b07-86af-48e3-9075-0a64d9987376">
           <AttributeID>Estado Sanatorio</AttributeID>
           <Name>Estado Sanatorio</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="1f64438f-b30c-454c-8d22-da7eadaa0554">
+        <AttributeRelationship dwd:design-time-name="ca4eb791-6f7e-4b10-8a7f-f29c99c86c75">
           <AttributeID>Latitud</AttributeID>
           <Name>Latitud</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="510ed95b-a389-4b12-a40f-4b7762cb0206">
+        <AttributeRelationship dwd:design-time-name="614a6328-56be-422e-bd1e-bf9ec687ad56">
           <AttributeID>Longitud</AttributeID>
           <Name>Longitud</Name>
         </AttributeRelationship>
@@ -90,14 +116,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="95a780c8-ad0e-43d4-8825-592876820641">
+    <Attribute dwd:design-time-name="5730fd6e-2009-4d15-a0d7-833554a94015">
       <ID>Estado Sanatorio</ID>
-      <Name>Estado Sanatorio</Name>
+      <Name>Estado_Sanatorio</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="37d5e7f4-c18a-413f-bde7-66af9c703306">
+        <KeyColumn dwd:design-time-name="b51af225-4da8-44c3-bab4-b176ac0027f4">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="880bd03a-c243-4a1f-8690-58f7925b85c0">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17516a8d-8ba6-4d04-ae46-d7457a51415b">
             <TableID>dbo_TDim_Sanatorios</TableID>
             <ColumnID>Estado_Sanatorio</ColumnID>
           </Source>
@@ -107,13 +133,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="3f07ba61-f4c5-40e7-9642-ce891332d894">
+    <Attribute dwd:design-time-name="9c3add56-dc8e-4ea5-ae18-ba525990c286">
       <ID>Latitud</ID>
       <Name>Latitud</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="f2d480d0-58e3-45c4-95e3-19f47c9235bf">
+        <KeyColumn dwd:design-time-name="fcf2355b-6923-4a31-90f0-e1f588c12287">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="eebb8997-79d6-4c69-8a74-bae5f0b5825f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cf663282-b01b-4c99-96db-e5f602385956">
             <TableID>dbo_TDim_Sanatorios</TableID>
             <ColumnID>Latitud</ColumnID>
           </Source>
@@ -123,13 +149,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a78e13c5-29a0-4b0c-b5ed-78a5ca5687c5">
+    <Attribute dwd:design-time-name="f72fb1fb-b0fa-4dc8-83f7-402982e6b694">
       <ID>Longitud</ID>
       <Name>Longitud</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="02396e01-e76e-4ef8-80f2-d3b2f09c1b0d">
+        <KeyColumn dwd:design-time-name="e2a6630a-1f11-4a04-8fb8-4aa8b4fdbc83">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2c444636-5b3d-4e44-87ac-8c2b335800d2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cf8903fe-06ee-4af7-b10e-08600bccf666">
             <TableID>dbo_TDim_Sanatorios</TableID>
             <ColumnID>Longitud</ColumnID>
           </Source>
@@ -140,5 +166,23 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="9e0dfcda-5a17-40ee-beb0-fef6505f0b4a">
+      <ID>Jerarquía</ID>
+      <Name>SanatorioxEstado</Name>
+      <Levels>
+        <Level dwd:design-time-name="6f98d631-8161-44ae-9ac2-b23b121afbde">
+          <ID>Estado_Sanatorio</ID>
+          <Name>Estado_Sanatorio</Name>
+          <SourceAttributeID>Estado Sanatorio</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="31620cb4-a37c-4856-afa9-145b66f8ebed">
+          <ID>Sanatorio</ID>
+          <Name>Sanatorio</Name>
+          <SourceAttributeID>Sk Sanatorio</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
